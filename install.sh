@@ -162,6 +162,26 @@ sudo apt install -y code
 
 echo "VS Code installed."
 
+# ------------------- Brave Browser Install ------------------- #
+
+# Download and add the Brave browser GPG key to the keyring
+echo "Adding Brave browser GPG key..."
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+# Add Brave browser repository to sources.list.d
+echo "Adding Brave browser repository..."
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+# Update the package list to include the Brave browser repository
+echo "Updating package list..."
+sudo apt update
+
+# Install Brave browser
+echo "Installing Brave browser..."
+sudo apt install brave-browser
+
+echo "Brave browser is installed."
+
 # ------------------- Additional Configurations ------------------- #
 
 # Gunzip the rockyou wordlist if necessary
