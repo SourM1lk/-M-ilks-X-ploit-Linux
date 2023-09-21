@@ -34,7 +34,7 @@ Current list of Tool Installations:
     hashcat
 ```
 
-- **Kali Linux Integration:** It adds the Kali Linux repository to your package sources and installs Kali tools, expanding your toolkit.
+- **Kali Linux Integration:** It adds the Kali Linux repository to your package sources and installs Kali tools, expanding your toolkit. However, 
 
 To install tools from the Kali repo, run the following command:
 ```shell
