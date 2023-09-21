@@ -134,8 +134,35 @@ done
 
 echo "Kali tools from the Kali Repository are installed."
 
+# ------------------- VS Code Install ------------------- #
 
-# Additional configurations and cleanup
+echo "Installing VS Code..."
+sudo apt-get install -y wget gpg
+
+# Download Microsoft GPG key
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+
+# Install the GPG key to the package keyring
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+
+# Add VS Code repository to sources.list.d
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# Clean up the downloaded GPG key
+rm -f packages.microsoft.gpg
+
+# Install apt-transport-https if not already installed
+sudo apt-get install -y apt-transport-https
+
+# Update the package list to include the VS Code repository
+sudo apt update
+
+# Install VS Code
+sudo apt install -y code
+
+echo "VS Code installed."
+
+# ------------------- Additional Configurations ------------------- #
 
 # Gunzip the rockyou wordlist if necessary
 echo "Checking and gunzipping the rockyou wordlist..."
