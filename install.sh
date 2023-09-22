@@ -64,6 +64,8 @@ default_tools=(
     python3-setuptools
     guake
     tmux
+    open-vm-tools-desktop
+    open-vm-tools
 )
 
 # Install tools from default repositories
