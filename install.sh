@@ -98,6 +98,7 @@ echo "Kali Linux repository and packages are configured."
 
 # Define a list of tools to install from default repositories
 default_tools=(
+    glibc-source
     smbclient
     netcat-traditional
     nmap
