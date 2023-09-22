@@ -11,26 +11,6 @@ echo "Updating package list and upgrading existing packages..."
 sudo apt update
 sudo apt full-upgrade -y
 
-# ------------------- Terminal Intial Install ------------------- #
-
-# Guake Terminal
-echo "Installing Guake Terminal..."
-sudo apt install -y guake
-
-# ZSH
-echo "Installing Zsh..."
-sudo apt install -y zsh
-
-# Zsh as the default shell
-echo "Setting Zsh as the default shell..."
-chsh -s $(which zsh)
-
-# Installing Tmux
-echo "Installing Tmux..."
-sudo apt install -y tmux
-
-echo "Initial Terminal setup completed."
-
 # ------------------- Kali Repository Install ------------------- #
 
 # Update the package list to ensure it's current
@@ -79,6 +59,9 @@ default_tools=(
     smbclient
     netcat-traditional
     nmap
+    python3-pip
+    python3-dev
+    python3-setuptools
 )
 
 # Install tools from default repositories
