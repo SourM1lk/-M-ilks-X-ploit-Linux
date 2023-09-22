@@ -62,6 +62,8 @@ default_tools=(
     python3-pip
     python3-dev
     python3-setuptools
+    guake
+    tmux
 )
 
 # Install tools from default repositories
