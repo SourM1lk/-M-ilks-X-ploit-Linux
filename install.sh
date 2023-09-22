@@ -11,7 +11,7 @@ echo "Updating package list and upgrading existing packages..."
 sudo apt update
 sudo apt full-upgrade -y
 
-# ------------------- Terminal Install ------------------- #
+# ------------------- Terminal Intial Install ------------------- #
 
 # Guake Terminal
 echo "Installing Guake Terminal..."
@@ -25,35 +25,11 @@ sudo apt install -y zsh
 echo "Setting Zsh as the default shell..."
 chsh -s $(which zsh)
 
-# Start a new Zsh shell session to continue the script
-echo "Starting a new Zsh session..."
-exec zsh
-
-# Oh My Zsh
-echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-# Cloning Zsh plugins
-echo "Cloning Zsh plugins..."
-plugins_directory=~/.oh-my-zsh/custom/plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $plugins_directory/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $plugins_directory/zsh-syntax-highlighting
-
-# Editing ~/.zshrc to include the plugins
-echo "Editing ~/.zshrc to include the plugins..."
-sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
-
-# Activating the changes
-echo "Activating the changes..."
-source ~/.zshrc
-
 # Installing Tmux
 echo "Installing Tmux..."
 sudo apt install -y tmux
 
-# TODO: TMUX plugins/configurations
-
-echo "Terminal setup completed."
+echo "Initial Terminal setup completed."
 
 # ------------------- Kali Repository Install ------------------- #
 
@@ -99,6 +75,7 @@ echo "Kali Linux repository and packages are configured."
 # Define a list of tools to install from default repositories
 default_tools=(
     glibc-source
+    git
     smbclient
     netcat-traditional
     nmap
@@ -183,7 +160,7 @@ sudo apt update
 
 # Install Brave browser
 echo "Installing Brave browser..."
-sudo apt install brave-browser
+sudo apt install -y brave-browser
 
 echo "Brave browser is installed."
 
@@ -202,3 +179,5 @@ echo "Choose your poison: Burp Suite, ZAP, or Caido"
 echo "Install any additional tools via the 'sudo apt install TOOL -y -t kali-rolling' command."
 
 echo "Setup completed. Happy hacking!"
+
+echo "Log out and log back in and run terminal_setup.sh to complete the terminal setup."
